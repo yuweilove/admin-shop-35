@@ -53,6 +53,9 @@ export default {
           .then(res => {
             console.log(res)
             if (res.data.meta.status === 200) {
+              //设置token的值
+              console.log(res.data.data.token);
+              localStorage.setItem('token',res.data.data.token)
               this.$message({
                 message:res.data.meta.msg,
                 type: 'success',
@@ -76,14 +79,7 @@ export default {
 }
 </script>
 
-<style>
-  *{
-    padding: 0;
-    margin: 0;
-  }
-  html,body,#app{
-    height: 100%;
-  }
+<style scoped lang='less'>
   .row1 {
     height: 100%;
     background-color: #2d434c;
